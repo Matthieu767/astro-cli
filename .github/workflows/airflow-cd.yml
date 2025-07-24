@@ -1,0 +1,34 @@
+
+name: Airflow CD
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-to-composer:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
+
+      - name: Install gsutil
+        run: |
+          if ! command -v gsutil &> /dev/null; then
+            pip install gsutil
+          fi
+
+      - name: Upload Airflow files to Composer
+        run: |
+          cd airflow
+          chmod +x upload_to_composer.sh
+          ./upload_to_composer.sh ${{ secrets.COMPOSER_GCS_BUCKET }}
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}

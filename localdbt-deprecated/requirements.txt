@@ -1,0 +1,9 @@
+dagster
+dagster-dbt
+dbt-core
+dbt-sqlite
+pandas
+deltalake
+pyarrow
+typer
+# -e ./bronze_silver_pipeline[dev] 

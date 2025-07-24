@@ -1,0 +1,12 @@
+# Copy this file to terraform.tfvars and fill in your values
+project_id = "datamanagemenplatformdev"
+# region = "europe-west3"  # Optional: override default region
+
+# Developer emails for bronze layer access
+developer_emails = [
+  "developer1@yourcompany.com",
+  "developer2@yourcompany.com"
+]
+
+# Environment configuration
+environment = "dev" 

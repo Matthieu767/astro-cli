@@ -1,0 +1,12 @@
+
+name: Dataform CD
+
+on:
+  workflow_dispatch:
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hello from Dataform CD
+        run: echo "Hello World from Dataform CD!"

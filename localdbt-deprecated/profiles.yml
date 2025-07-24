@@ -1,0 +1,10 @@
+bronze_silver_transform:
+  target: dev
+  outputs:
+    dev:
+      type: sqlite
+      database: warehouse
+      schema: main
+      schema_directory: data/
+      schemas_and_paths:
+        main: data/warehouse.db 

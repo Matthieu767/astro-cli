@@ -1,0 +1,12 @@
+
+name: Airflow CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hello from Airflow CI
+        run: echo "Hello World from Airflow CI!"

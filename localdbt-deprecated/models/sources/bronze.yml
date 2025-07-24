@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: bronze
+    schema: main
+    tables:
+      - name: items
+        external:
+          location: '../data/bronze/{{ var("partition_date") }}/items.csv'
+          format: csv
+          delimiter: ';'
+          header: true
+      - name: attributes
+        external:
+          location: '../data/bronze/{{ var("partition_date") }}/attributes.csv'
+          format: csv
+          delimiter: ';'
+          header: true 

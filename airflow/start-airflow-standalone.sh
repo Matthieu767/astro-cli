@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export AIRFLOW_HOME=$PWD
+export AIRFLOW__CORE__LOAD_EXAMPLES=False
+export AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS=True
+export AIRFLOW__CORE__DAGS_FOLDER=$PWD/dags
+export AIRFLOW__CORE__PLUGINS_FOLDER=$PWD/plugins
+
+airflow standalone
